@@ -5,6 +5,7 @@ const httpErrors = require('http-errors')
 <%- consolidate ? `const consolidate = require('consolidate')\n` : '' -%>
 <%- (appType === 'web-app' && !consolidate) ? `const ${viewEngine} = require('${viewEngine}')\n` : '' -%>
 <%- bodyParser ? `const bodyParser = require('body-parser')\n` : '' -%>
+<%- cors ? `const cors = require('cors')\n` : '' -%>
 <%- cookieParser ? `const cookieParser = require('cookie-parser')\n` : '' -%>
 <%- serveStatic ? `const serveStatic = require('serve-static')\n` : '' -%>
 <%- pino ? `const pino = require('pino')\n` : '' -%>
@@ -72,6 +73,8 @@ module.exports = function main (options, cb) {
   // errors and handle them outside the node process.  I find this is
   // better because it works out of the box even in local development.
   require('./routes')(app, opts)
+
+  app.use(cors())
 
   // Common error handlers
   app.use(function fourOhFourHandler (req, res, next) {
