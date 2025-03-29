@@ -18,6 +18,7 @@ program
   .option('--name [name]', 'The package name')
   .option('--app-type [type]', 'The app type, determines template and defaults')
   .option('--body-parser', 'Install and use the body-parser package')
+  .option('--cors', 'Install and use the cors package')
   .option('--consolidate', 'Install and use the consolidate package')
   .option('--cookie-parser', 'Install and use the cookie-parser package')
   .option('--serve-static', 'Install and use the serve-static package')

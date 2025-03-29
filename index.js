@@ -28,6 +28,7 @@ module.exports = async function createExpressApp (options = {}) {
     directory: cwd,
     appType: 'bare',
     bodyParser: false,
+    cors: false,
     consolidate: false,
     cookieParser: false,
     serveStatic: false,
@@ -52,6 +53,7 @@ module.exports = async function createExpressApp (options = {}) {
   // add to deps
   opts.dependencies.push('express', 'http-errors')
   opts.bodyParser && opts.dependencies.push('body-parser')
+  opts.cors && opts.dependencies.push('cors')
   opts.consolidate && opts.dependencies.push('consolidate')
   ;((opts.appType === 'web-app') || opts.consolidate) && opts.dependencies.push(opts.viewEngine)
   opts.cookieParser && opts.dependencies.push('cookie-parser')
