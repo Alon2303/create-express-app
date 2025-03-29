@@ -33,6 +33,7 @@ Options:
   --app-type [type]                  The app type, determines template and defaults
   --view-engine [type]               The view engine to use (default ejs)
   --body-parser                      Install and use the body-parser package
+  --cors                             Install and use the cors package
   --consolidate                      Install and use the consolidate package
   --cookie-parser                    Install and use the cookie-parser package
   --serve-static                     Install and use the serve-static package
