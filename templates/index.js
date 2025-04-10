@@ -63,6 +63,7 @@ module.exports = function main (options, cb) {
   // app.use(bodyParser.text())
   // app.use(bodyParser.raw())
   // app.use(bodyParser.urlencoded())\n` : '' -%>
+  <%-(cors ? `app.use(cors())\n` : '') -%>
   <%- (cookieParser ? `app.use(cookieParser(/* secret */))\n` : '') -%>
   <%- (serveStatic ? `app.use('/public', serveStatic('public'))\n` : '') -%>
 
@@ -73,8 +74,6 @@ module.exports = function main (options, cb) {
   // errors and handle them outside the node process.  I find this is
   // better because it works out of the box even in local development.
   require('./routes')(app, opts)
-
-  app.use(cors())
 
   // Common error handlers
   app.use(function fourOhFourHandler (req, res, next) {

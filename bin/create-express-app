@@ -47,6 +47,7 @@ createExpressApp({
   name: typeof program.name === 'string' ? program.name : undefined,
   appType: program.appType,
   bodyParser: program.bodyParser,
+  cors: program.cors,
   consolidate: program.consolidate,
   cookieParser: program.cookieParser,
   serveStatic: program.serveStatic,
